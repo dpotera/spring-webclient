@@ -1,3 +1,5 @@
+package pl.potera.webclient;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,4 +13,8 @@ public class Employee {
     private String name;
 
     private Double points;
+
+    public static Employee apiEmployee() {
+        return new Employee(null, "API employee", 10d);
+    }
 }
