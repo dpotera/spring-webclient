@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'pl.potera'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+    implementation 'org.springframework:spring-webflux:5.1.7.RELEASE'
+    implementation 'io.projectreactor.netty:reactor-netty:0.8.8.RELEASE'
+}
