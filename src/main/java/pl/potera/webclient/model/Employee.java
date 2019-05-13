@@ -1,4 +1,4 @@
-package pl.potera.webclient;
+package pl.potera.webclient.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

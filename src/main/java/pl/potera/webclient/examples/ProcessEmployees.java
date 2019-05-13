@@ -1,7 +1,7 @@
 package pl.potera.webclient.examples;
 
-import pl.potera.webclient.Employee;
-import pl.potera.webclient.WebClientAPI;
+import pl.potera.webclient.model.Employee;
+import pl.potera.webclient.api.WebClientAPI;
 import pl.potera.webclient.timeutils.TimeUtils;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

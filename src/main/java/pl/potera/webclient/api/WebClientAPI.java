@@ -1,7 +1,8 @@
-package pl.potera.webclient;
+package pl.potera.webclient.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.reactive.function.client.WebClient;
+import pl.potera.webclient.model.Employee;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
