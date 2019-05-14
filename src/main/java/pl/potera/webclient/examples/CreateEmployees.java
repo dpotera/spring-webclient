@@ -85,12 +85,12 @@ class CreateEmployeesAsyncRestTemplateFlux {
 
             Flux.range(0, Size.SIZE)
                     .flatMap(number ->
-                            Mono.just(restTemplate.postNewEmployee())
+                            Mono.fromFuture(restTemplate.postNewEmployee().completable())
                                     .subscribeOn(Schedulers.parallel())
                     )
                     .collect(Collectors.toList())
                     .block()
 
-        , "restTemplate flatMap");
+        , "asyncRestTemplate flatMap");
     }
 }
