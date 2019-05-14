@@ -1,5 +1,6 @@
 package pl.potera.webclient.examples;
 
+import pl.potera.webclient.api.AsyncRestTemplateAPI;
 import pl.potera.webclient.api.RestTemplateAPI;
 import pl.potera.webclient.api.WebClientAPI;
 import pl.potera.webclient.timeutils.TimeUtils;
@@ -61,6 +62,24 @@ class CreateEmployeesRestTemplate {
 class CreateEmployeesRestTemplateFlux {
     public static void main(String[] args) {
         RestTemplateAPI restTemplate = new RestTemplateAPI();
+
+        TimeUtils.measureTime(() ->
+
+            Flux.range(0, Size.SIZE)
+                    .flatMap(number ->
+                            Mono.just(restTemplate.postNewEmployee())
+                                    .subscribeOn(Schedulers.parallel())
+                    )
+                    .collect(Collectors.toList())
+                    .block()
+
+        , "restTemplate flatMap");
+    }
+}
+
+class CreateEmployeesAsyncRestTemplateFlux {
+    public static void main(String[] args) {
+        AsyncRestTemplateAPI restTemplate = new AsyncRestTemplateAPI();
 
         TimeUtils.measureTime(() ->
 
